@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">i2aDemo</string>
+
+    <string name="button_present">Present</string>
+    <string name="button_push">Push</string>
+
+</resources>
