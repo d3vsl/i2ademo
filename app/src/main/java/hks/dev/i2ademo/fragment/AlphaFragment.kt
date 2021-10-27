@@ -1,27 +1,17 @@
-package hks.dev.i2ademo
+package hks.dev.i2ademo.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import hks.dev.i2ademo.manager.DataManager
+import hks.dev.i2ademo.R
 
-class AlphaFragment: Fragment(R.layout.alpha_fragment) {
+class AlphaFragment : Fragment(R.layout.alpha_fragment) {
 
     lateinit var vAlpha: TextView
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,9 +23,18 @@ class AlphaFragment: Fragment(R.layout.alpha_fragment) {
             val text = DataManager.dataString
             setAlphaContent(text)
         }
+
+        view.findViewById<TextView>(R.id.vBeta).setOnClickListener {
+            parentFragmentManager.commit {
+                setReorderingAllowed(true)
+                addToBackStack("BetaFragment")
+                add<BetaFragment>(R.id.vContainer)
+            }
+        }
+
     }
 
-    private fun setAlphaContent(content: String?){
+    private fun setAlphaContent(content: String?) {
         vAlpha.text = content ?: "null"
     }
 
@@ -54,6 +53,7 @@ class AlphaFragment: Fragment(R.layout.alpha_fragment) {
     override fun onStop() {
         super.onStop()
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
     }

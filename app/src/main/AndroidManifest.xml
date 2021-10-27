@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.I2aDemo">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +19,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity"
-            android:parentActivityName=".MainActivity">
+        <activity android:name=".activity.SecondActivity"
+            android:parentActivityName=".activity.MainActivity">
             <!--Add upward navigation-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
 
     </application>

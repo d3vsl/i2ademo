@@ -1,12 +1,16 @@
-package hks.dev.i2ademo
+package hks.dev.i2ademo.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.add
-import androidx.fragment.app.commit
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import hks.dev.i2ademo.manager.DataManager
+import hks.dev.i2ademo.R
+import hks.dev.i2ademo.fragment.AlphaFragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,15 +28,24 @@ class MainActivity : AppCompatActivity() {
 
         //push button setup
         val vPush: TextView = findViewById(R.id.vPush)
-        vPush.text = "New Push Text"
+        vPush.text = "Push Button"
         vPush.setOnClickListener {
             Log.d("Hi Tag", "you have clicked vPush")
 
-            //fragment-ktx functions
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                add<AlphaFragment>(R.id.vContainer)
-            }
+            //old way
+            val newFragment = AlphaFragment()
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack if needed
+            transaction.add(R.id.vContainer, newFragment)
+            transaction.addToBackStack("AlphaFragment")
+            transaction.commit()
+
+            //new way from fragment-ktx functions
+//            supportFragmentManager.commit {
+//                setReorderingAllowed(true)
+//                add<AlphaFragment>(R.id.vContainer)
+//            }
         }
 
         //send button setup
@@ -47,6 +60,13 @@ class MainActivity : AppCompatActivity() {
 
         //save data to singleton
         DataManager.dataString = "Hello this sentence is from MainActivity"
+
+
+        //show number of backstack in this fragment manager
+        val vBackstackCount:TextView = findViewById(R.id.vBackstackCount)
+        supportFragmentManager.addOnBackStackChangedListener {
+            vBackstackCount.text = "Fragment Backstack Count: ${supportFragmentManager.backStackEntryCount.toString()}"
+        }
     }
 
     private fun openSecondActivity() {

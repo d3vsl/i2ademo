@@ -1,4 +1,4 @@
-package hks.dev.i2ademo
+package hks.dev.i2ademo.manager
 
 //singleton class
 object DataManager {

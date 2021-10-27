@@ -1,8 +1,9 @@
-package hks.dev.i2ademo
+package hks.dev.i2ademo.activity
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import hks.dev.i2ademo.R
 
 class SecondActivity : AppCompatActivity(R.layout.second_activity) {
 
