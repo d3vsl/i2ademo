@@ -8,6 +8,11 @@
         <entry key="app/src/main/res/layout/main_activity.xml" value="0.3112820512820513" />
         <entry key="app/src/main/res/layout/main_fragment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/second_activity.xml" value="0.2388888888888889" />
+        <entry key="app/src/main/res/layout/third_a_fragment.xml" value="0.22962962962962963" />
+        <entry key="app/src/main/res/layout/third_activity.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/third_b_fragment.xml" value="0.22962962962962963" />
+        <entry key="app/src/main/res/layout/third_c_fragment.xml" value="0.22962962962962963" />
+        <entry key="app/src/main/res/layout/third_d_fragment.xml" value="0.22962962962962963" />
       </map>
     </option>
   </component>

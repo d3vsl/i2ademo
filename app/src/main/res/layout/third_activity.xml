@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/vFragmentA"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="hks.dev.i2ademo.fragment.ThirdAFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vFragmentB"
+        app:layout_constraintBottom_toTopOf="@+id/vFragmentC"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/vFragmentB"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="hks.dev.i2ademo.fragment.ThirdBFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vFragmentA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/vFragmentA"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/vFragmentC"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="hks.dev.i2ademo.fragment.ThirdCFragment"
+        app:layout_constraintTop_toBottomOf="@+id/vFragmentA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vFragmentD"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/vFragmentD"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:name="hks.dev.i2ademo.fragment.ThirdDFragment"
+        app:layout_constraintTop_toBottomOf="@+id/vFragmentB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vFragmentC"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

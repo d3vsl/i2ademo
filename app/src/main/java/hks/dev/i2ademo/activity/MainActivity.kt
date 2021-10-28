@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import hks.dev.i2ademo.manager.DataManager
 import hks.dev.i2ademo.R
 import hks.dev.i2ademo.fragment.AlphaFragment
+import hks.dev.i2ademo.manager.DataManager
 
 
 class MainActivity : AppCompatActivity() {
@@ -63,10 +62,17 @@ class MainActivity : AppCompatActivity() {
 
 
         //show number of backstack in this fragment manager
-        val vBackstackCount:TextView = findViewById(R.id.vBackstackCount)
+        val vBackstackCount: TextView = findViewById(R.id.vBackstackCount)
         supportFragmentManager.addOnBackStackChangedListener {
-            vBackstackCount.text = "Fragment Backstack Count: ${supportFragmentManager.backStackEntryCount.toString()}"
+            vBackstackCount.text =
+                "Fragment Backstack Count: ${supportFragmentManager.backStackEntryCount.toString()}"
         }
+
+        findViewById<TextView>(R.id.vPresentThird)
+            .setOnClickListener {
+                val intent = Intent(this, ThirdActivity::class.java)
+                startActivity(intent)
+            }
     }
 
     private fun openSecondActivity() {
